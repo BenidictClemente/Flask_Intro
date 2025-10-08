@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block content %}
+<section class="calc-card">
+    <h2>Area of Triangle</h2>
+    <form method="POST">
+        <label>Base:</label>
+        <input type="number" name="base" step="any" required>
+        <label>Height:</label>
+        <input type="number" name="height" step="any" required>
+        <button type="submit">Calculate</button>
+    </form>
+
+    {% if area is not none %}
+        <h3>Area = {{ area }}</h3>
+    {% endif %}
+</section>
+{% endblock %}
+
+
