@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block content %}
+<section class="mcr-section">
+    <h2>Infix to Postfix Converter</h2>
+    <p class="mcr-subtext">Convert your infix expression into postfix form — just like turning chaos into music 🎶</p>
+
+    <form method="POST" class="mcr-form">
+        <input type="text" name="expression" placeholder="Enter infix expression (e.g. A+B*C)" required>
+        <button type="submit" class="mcr-btn">Convert</button>
+    </form>
+
+    {% if result %}
+    <div class="mcr-result">
+        <h3>🎧 Result</h3>
+        <p><strong>Infix:</strong> {{ expression }}</p>
+        <p><strong>Postfix:</strong> {{ result }}</p>
+    </div>
+    {% endif %}
+</section>
+{% endblock %}

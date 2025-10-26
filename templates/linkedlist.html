@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+
+{% block title %}Linked List{% endblock %}
+
+{% block content %}
+<section class="mcr-contact">
+    <h2>Linked List Operations</h2>
+    <p>This section lets you <strong>Insert</strong> and <strong>Delete</strong> nodes from a linked list.</p>
+
+    <form method="POST" style="margin: 20px 0;">
+        <input type="text" name="value" placeholder="Enter value" required
+               style="padding: 8px; border-radius: 5px; border: 1px solid #ccc; width: 60%;">
+        <button type="submit" name="action" value="insert"
+                style="background-color:#1abc9c; color:white; border:none; padding:8px 15px; border-radius:5px; cursor:pointer;">
+            Insert
+        </button>
+        <button type="submit" name="action" value="delete"
+                style="background-color:#e74c3c; color:white; border:none; padding:8px 15px; border-radius:5px; cursor:pointer;">
+            Delete
+        </button>
+    </form>
+
+    <h3>Current Linked List:</h3>
+
+    {% if items %}
+        <div style="display: flex; justify-content: center; align-items: center; flex-wrap: wrap; margin-top: 25px;">
+            {% for item in items %}
+                <div style="
+                    display: flex;
+                    align-items: center;
+                    margin: 5px;">
+                    <div style="
+                        background-color: #1abc9c;
+                        color: white;
+                        padding: 10px 20px;
+                        border-radius: 8px;
+                        box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+                        font-weight: bold;">
+                        {{ item }}
+                    </div>
+                    {% if not loop.last %}
+                        <span style="margin: 0 10px; font-size: 20px; color: #2c3e50;">→</span>
+                    {% endif %}
+                </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <p><em>The linked list is currently empty.</em></p>
+    {% endif %}
+
+    <p class="quote" style="margin-top:30px;">“Each node connects the past and the future — that’s the beauty of a linked list.”</p>
+</section>
+{% endblock %}
+
